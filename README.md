@@ -27,7 +27,7 @@ Currently, the only acceptable values for color are **hex values**, `transparent
 
 ## How to Use
 
-<span style="color: gray;">*Want to use this with CSS? See the [Prefix Free Section](#prefix-free-docs)*</span>
+<span style="color: gray;">*Want to use this with CSS? See the [**Prefix Free Section**](#prefix-free-docs)*</span>
 
 ```javascript
 new DropShadow({
