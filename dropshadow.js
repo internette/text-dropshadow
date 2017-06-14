@@ -133,7 +133,7 @@
             return colors_array;
         },
         interpolateColor: function (a, b, amount) {
-
+            // https://gist.github.com/rosszurowski/67f04465c424a9bc0dae
             var ah = parseInt(a.replace(/#/g, ''), 16),
                 ar = ah >> 16, ag = ah >> 8 & 0xff, ab = ah & 0xff,
                 bh = parseInt(b.replace(/#/g, ''), 16),
