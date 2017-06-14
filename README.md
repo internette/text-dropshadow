@@ -2,6 +2,8 @@
 
 Welcome to the Text Dropshadow repo. Here you can find an example project using the library as well as the library itself.
 
+See the library in use in [this Codepen](https://codepen.io/acjdesigns/pen/eRzqMX).
+
 ## How does it work?
 
 Text Dropshadow takes the user-provided inputs, calculates all points between the center of the text ([0,0]) and a calculated end point based on the angle and distance from the center.
