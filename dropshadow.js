@@ -128,35 +128,6 @@
                             colors_array.push(converted_current_color);
                         }
                     }
-                    // if ((i === this.formattedColorsWithSteps.length - 1) || (current_color.position === this.formattedColorsWithSteps[i + 1].position)) {
-                    //     if (this.formattedColorsWithSteps[i + 1].color === 'transparent') {
-                    //         var color = current_color.color.match(/#/gi) ? current_color.color : this.convertColorToHex(current_color.color);
-                    //         colors_array.push('rgba(' + this.getRGBfromHEX(color).r + ', ' + this.getRGBfromHEX(color).g + ', ' + this.getRGBfromHEX(color).b + ', ' + curr_step + ')');
-                    //     } else {
-                    //         colors_array.push(current_color.color.match(/#/gi) ? current_color.color : this.convertColorToHex(current_color.color));
-                    //     }
-                    // } else {
-                    //     // var color = this.interpolateColor(current_color.color, this.formattedColorsWithSteps[i + 1].color, curr_step);
-                    //     // colors_array.push(this.interpolateColor(current_color.color, this.formattedColorsWithSteps[i + 1].color, curr_step));
-                    //     if (current_color.color === 'transparent') {
-                    //         if (this.formattedColorsWithSteps[i - 1].color === 'transparent') {
-                    //             colors_array.push(current_color.color);
-                    //         } else {
-                    //             var last_color = this.formattedColorsWithSteps[i - 1].color;
-                    //             colors_array.push('rgba(' + this.getRGBfromHEX(last_color).r + ', ' + this.getRGBfromHEX(last_color).g + ', ' + this.getRGBfromHEX(last_color).b + ', ' + curr_step + ')');
-                    //         }
-                    //     } else {
-                    //         if (this.formattedColorsWithSteps[i + 1].color === 'transparent') {
-                    //             colors_array.push('rgba(' + this.getRGBfromHEX(current_color.color).r + ', ' + this.getRGBfromHEX(current_color.color).g + ', ' + this.getRGBfromHEX(current_color.color).b + ', ' + curr_step + ')');
-                    //             // colors_array.push(current_color.color);
-                    //         } else {
-                    //             var current_hex_value = current_color.color.match(/#/gi) ? current_color.color : this.convertColorToHex(current_color.color)
-                    //             var next_hex_value = this.formattedColorsWithSteps[i + 1].color.match(/#/gi) ? this.formattedColorsWithSteps[i + 1].color : this.convertColorToHex(this.formattedColorsWithSteps[i + 1].color)
-                    //             var color = this.interpolateColor(current_hex_value, next_hex_value, curr_step);
-                    //             colors_array.push(color);
-                    //         }
-                    //     }
-                    // }
                 }
             }
             return colors_array;
@@ -225,14 +196,12 @@
     }
 })();
 if (self.StyleFix) {
-    // Test if conic gradients are supported first:
     (function () {
         var dummy = document.createElement("p");
         dummy.style.textShadow = "dropshadow(white, black)";
         dummy.style.textShadow = PrefixFree.prefix + "dropshadow(white, black)";
 
         if (!dummy.style.textShadow) {
-            // Not supported, use polyfill
             StyleFix.register(function (css, raw) {
                 if (css.indexOf("dropshadow") > -1) {
                     css = css.replace(/dropshadow\(\s*((?:\([^()]+\)|[^;()}])+?)\)/g, function (full_selector, values) {
@@ -244,7 +213,7 @@ if (self.StyleFix) {
                                 return input.match(regexMatch);
                             });
                         }
-                        var angle = matchDeg() && !isNaN(parseInt(matchDeg())) ? parseInt(matchDeg()) + 'deg' : '90deg';
+                        var angle = matchDeg() && !isNaN(parseInt(matchDeg())) ? parseInt(matchDeg()) + 'deg' : '45deg';
                         var length = matchDeg(false) && !isNaN(parseInt(matchDeg(false))) ? matchDeg(false) : '20px';
                         var stops = values.replace(angle, '').replace(length, '').split(',').filter(function (n) { return n.trim().length > 0 })
                         return new DropShadow({
